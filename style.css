@@ -1,0 +1,258 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN BASE (Colores, Tipografía y Reset)
+   ========================================================================== */
+:root {
+    --primary-color: #2c3e50;    /* Azul oscuro para encabezados */
+    --accent-color: #e67e22;     /* Naranja para enlaces y detalles */
+    --text-color: #333333;       /* Gris oscuro para el texto principal */
+    --bg-color: #f9f9f9;         /* Fondo gris muy claro */
+    --card-bg: #ffffff;          /* Fondo blanco para las secciones/tarjetas */
+    --border-color: #e0e0e0;     /* Gris claro para bordes */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    padding: 20px;
+}
+
+/* ==========================================================================
+   2. LAYOUT PRINCIPAL Y CONTENEDORES (Estructura Semántica)
+   ========================================================================== */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Navegación usando Flexbox (Requisito: Nav + Flexbox) */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Contenedor Main */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Estilo común para secciones */
+section {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+section h3 {
+    color: var(--primary-color);
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 2rem 0;
+}
+
+/* Listas y texto */
+ul {
+    margin-left: 20px;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   3. IMPLEMENTACIÓN DE GRID (Sección de Soluciones y Journal)
+   ========================================================================== */
+/* Diseñamos las tarjetas de soluciones con CSS Grid */
+#solutions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Hacemos que el H2 de soluciones ocupe todo el ancho de la cuadrícula */
+#solutions h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+/* Estilo para las etiquetas <article> como tarjetas */
+article {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-top: 4px solid var(--primary-color);
+}
+
+/* ==========================================================================
+   4. COMPONENTES: Imágenes, Formulario y Footer
+   ========================================================================== */
+/* Marcador de imagen accesible y responsivo */
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px dashed var(--accent-color);
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    /* Temporal en lo que pones una imagen real */
+    min-height: 150px; 
+    display: block;
+    margin: 0 auto;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Formulario de Contacto Exigido (FCC Forms) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+}
+
+button[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #d35400;
+}
+
+/* Footer con Flexbox */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDAD (Media Queries para pantallas pequeñas)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    section {
+        padding: 1.2rem;
+    }
+}
